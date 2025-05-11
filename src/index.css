@@ -214,12 +214,22 @@ body.dark {
   background-image: none;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .theme-toggle {
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   margin-bottom: 1rem;
 }
 
