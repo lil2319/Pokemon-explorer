@@ -29,11 +29,41 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+html.light::before {
+  background-image: url('assets/pokemonLight.png');
+}
+
+html.dark::before {
+  background-image: url('assets/pokemonDark.png');
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 button {
@@ -48,7 +78,6 @@ button {
   width: 100%;
   padding: 1rem;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -65,30 +94,8 @@ button {
   }
 }
 
-html.light body {
-  background-image: url('assets/pokemonLight.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-html.dark body {
-  background-image: url('assets/pokemonDark.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-h1 {
-  text-align: center;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 p {
-  font-size: .9em;
+  font-size: 0.9em;
   line-height: 1;
   text-align: center;
   margin-top: 0.5rem;
@@ -104,10 +111,9 @@ h3 {
 
 h5 {
   font-size: 1rem;
-  font-weight: 300;
-  margin-top: 0..5rem;
-  color: red;
   font-weight: bold;
+  margin-top: 0.5rem;
+  color: red;
 }
 
 h2 {
@@ -115,7 +121,6 @@ h2 {
   line-height: 1.1;
   text-align: center;
   margin: 0.5rem;
-
 }
 
 .card-grid {
@@ -136,24 +141,6 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-html.light,
-body.light {
-  background-image: url('assets/pokemonLight.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-html.dark,
-body.dark {
-  background-image: url('assets/pokemonDark.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 .home-container {
@@ -224,7 +211,7 @@ body.dark {
   border: none;
   cursor: pointer;
   margin-left: auto;
-  padding: 0;
+  padding-right: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
