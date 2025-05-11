@@ -5,7 +5,7 @@ import App from './App.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Pokemon-explorer">
     <ThemeProvider>
       <App />
     </ThemeProvider>
